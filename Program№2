@@ -1,0 +1,22 @@
+Module Module1
+
+    Sub Main()
+        Dim a As Long
+        Dim b As Long = 1
+        Console.WriteLine("Введите числа")
+        Do
+            a = Console.ReadLine()
+            b = a * b
+            If a = 1 Then
+                Console.WriteLine("Произведение чисел равно:" & b)
+                Exit Do
+            ElseIf a <> 1 Then
+                Continue Do
+            End If
+
+        Loop
+        Console.WriteLine("Нажмите любую клавишу для завершения программы")
+        Console.ReadKey()
+    End Sub
+
+End Module
