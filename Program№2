@@ -1,11 +1,15 @@
 Module Module1
 
     Sub Main()
-        Dim a As Long
+        Dim a As Decimal
         Dim b As Long = 1
         Console.WriteLine("Введите числа")
         Do
             a = Console.ReadLine()
+            If a > Long.MaxValue Then
+                Console.WriteLine("Переполнение числового значения! Произведение на данное число не будет сделано!")
+                Continue Do
+            End If
             b = a * b
             If a = 1 Then
                 Console.WriteLine("Произведение чисел равно:" & b)
