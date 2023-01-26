@@ -1,0 +1,37 @@
+Module Module1
+
+    Sub Main()
+        'Ахтунг! Программа может считать как английскую раскладку с capslock или shift и без, так и русскую раскладку, цифры и прочие символы, имейте ввиду.)
+        Dim a As String
+        Dim d As Integer = 0
+        Dim b As Integer = 0
+        Dim c As Integer = 0
+        Dim e As Integer = 0
+        Dim g As Integer = 0
+        Console.WriteLine("Введите любые символы в консоль")
+        a = Console.ReadLine
+        For i As Integer = 0 To a.Length - 1
+            'Console.WriteLine(Asc(a.Chars(i))) - при необходимости добавить код символа, активировать.
+            Select Case Asc(a.Chars(i))
+                Case 66 To 68, 70 To 72, 74 To 78, 80 To 84, 86 To 88, 90, 98 To 100, 102 To 104, 106 To 110, 112 To 116, 118 To 120, 122, 193 To 196, 198, 199, 201 To 205, 207 To 210, 212 To 218, 220, 225 To 228, 230, 231, 233 To 237, 239 To 242, 244 To 250, 252
+                    b += 1
+                Case 65, 69, 73, 79, 85, 89, 97, 101, 105, 111, 117, 121, 192, 197, 200, 206, 211, 219, 221 To 223, 224, 229, 232, 238, 240, 241, 243, 251, 253 To 255
+                    d += 1
+                Case 32
+                    g += 1
+                Case 33 To 47, 58 To 64, 91 To 96, 123 To 127, 185, 196, 249 To 253
+                    c += 1
+                Case 40 To 57
+                    e += 1
+            End Select
+        Next
+        Console.WriteLine("Всего согласных:" & b)
+        Console.WriteLine("Всего гласных :" & d)
+        Console.WriteLine("Всего пробелов:" & g)
+        Console.WriteLine("Всего прочих символов:" & c)
+        Console.WriteLine("Всего цифр:" & e)
+        Console.WriteLine("Нажмите любую клавишу для выхода")
+        Console.ReadKey()
+    End Sub
+
+End Module
