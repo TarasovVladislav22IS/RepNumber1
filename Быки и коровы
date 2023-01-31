@@ -1,0 +1,71 @@
+Module Module1
+
+    Sub Main()
+        Dim a As Integer
+        Dim b As Integer
+        Dim c As Integer
+        Dim d As Integer
+        Dim a1 As Integer
+        Dim b1 As Integer
+        Dim c1 As Integer
+        Dim d1 As Integer
+        Randomize()
+        a = Int(0 + 9 * Rnd())
+        Do
+            Randomize()
+            b = Int(0 + 9 * Rnd())
+            If b = a Then
+                Continue Do
+            Else Exit Do
+            End If
+        Loop
+        Do
+            Randomize()
+            c = Int(0 + 9 * Rnd())
+            If c = a Or c = b Then
+                Continue Do
+            Else Exit Do
+            End If
+        Loop
+        Do
+            Randomize()
+            d = Int(0 + 9 * Rnd())
+            If d = a Or d = b Or d = c Then
+                Continue Do
+            Else Exit Do
+            End If
+        Loop
+        'Нужно в случае проверки генерации рандомного числа
+        'Console.Write(a)
+        'Console.Write(b)
+        'Console.Write(c)
+        'Console.Write(d)
+        'Console.WriteLine(" ")
+        Console.WriteLine("Введите какое-либо число от 0 до 9")
+        Do
+            a1 = Console.ReadLine
+            If a1 = a Then
+                Console.WriteLine("Корова")
+            Else Continue Do
+            End If
+            b1 = Console.ReadLine
+            If a1 = a And b1 = b Then
+                Console.WriteLine("Корова")
+            Else Continue Do
+            End If
+            c1 = Console.ReadLine
+            If a1 = a And b1 = b And c1 = c Then
+                Console.WriteLine("Корова")
+            Else Continue Do
+            End If
+            d1 = Console.ReadLine
+            If a1 = a And b1 = b And c1 = c And d1 = d Then
+                Console.WriteLine("Бык! Вы отгадали число!")
+                Exit Do
+            Else Continue Do
+            End If
+        Loop
+        Console.ReadKey()
+    End Sub
+
+End Module
