@@ -1,0 +1,30 @@
+Module Module1
+
+    Sub Main()
+        Dim a As Integer
+        Dim c As Integer
+        Dim b As String
+        Dim d As Integer
+        Dim e As Integer
+        Console.WriteLine("Введите длину")
+        a = Console.ReadLine
+        Console.WriteLine("Введите высоту")
+        c = Console.ReadLine
+        Console.WriteLine("Введите символ")
+        b = Console.ReadLine
+        Console.WriteLine("Введите позицию х")
+        d = Console.ReadLine
+        Console.WriteLine("Введите позицию у")
+        e = Console.ReadLine
+        Console.SetCursorPosition(d, e)
+        For j = 0 To c
+            For i = 1 To a
+                Console.Write(b)
+            Next
+            Console.SetCursorPosition(d, e)
+            e = e + 1
+        Next
+        Console.ReadKey()
+    End Sub
+
+End Module
