@@ -1,0 +1,51 @@
+Module Module1
+
+    Sub Main()
+        Dim x1, y1, numx, numy As Integer
+        Dim smb As String
+        Console.WriteLine("Введите координату х")
+        x1 = Console.ReadLine
+        Console.WriteLine("Введите координату у")
+        y1 = Console.ReadLine
+        Console.WriteLine("Введите количество символов по горизонтали")
+        numx = Console.ReadLine
+        Console.WriteLine("Введите количество символов по вертикали")
+        numy = Console.ReadLine
+        Console.WriteLine("Выберите желаемый символ при построении квадрата")
+        smb = Console.ReadLine
+        Hline(x1, y1, numx, numy, smb)
+        Vline(x1, y1, numy, numx, smb)
+    End Sub
+    Sub Hline(x As Integer, y As Integer, numx As Integer, numy As Integer, smb1 As String)
+        Console.SetCursorPosition(x, y)
+        For i = 1 To numx
+            Console.Write(smb1 & " ")
+        Next
+        y = numy - 1 + x
+        Console.SetCursorPosition(x, y)
+        For i = 1 To numx
+            Console.Write(smb1 & " ")
+        Next
+    End Sub
+    Sub Vline(x2 As Integer, y2 As Integer, numy As Integer, numx As Integer, smb2 As String)
+        Console.SetCursorPosition(x2, y2)
+        For j = 1 To numy
+            For i = 1 To 1
+                Console.Write(smb2)
+                y2 = y2 + 1
+            Next
+            Console.SetCursorPosition(x2, y2)
+        Next
+        x2 = numx * 2 - 2 + x2
+        y2 = y2 - 1
+        Console.SetCursorPosition(x2, y2)
+        For j = 1 To numy
+            For i = 1 To 1
+                Console.Write(smb2)
+                y2 = y2 - 1
+            Next
+            Console.SetCursorPosition(x2, y2)
+        Next
+        Console.ReadKey()
+    End Sub
+End Module
