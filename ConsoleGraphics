@@ -1,0 +1,136 @@
+Module Module1
+
+    Sub Main()
+        Dim x, y, a, b, length, hcubes, vcubes, x1 As Integer
+        Dim sym As String
+        Do
+            Console.Clear()
+            Console.WriteLine("Нарисовать таблицу - 1, нарисовать пустой квадрат - 2 , нарисовать заполненный квадрат - 3, нарисовать линию - 4,  настройки цвета фона и текста - 5, выйти из программы - 6")
+            a = Console.ReadLine
+            Select Case a
+                Case 1
+                    Console.Clear()
+                    Console.WriteLine("Введите координату х")
+                    x = Console.ReadLine
+                    Console.WriteLine("Введите координату у")
+                    y = Console.ReadLine
+                    Console.WriteLine("Введите длину линий")
+                    length = Console.ReadLine
+                    Console.WriteLine("Введите кол-во горизонтальных квадратов")
+                    hcubes = Console.ReadLine
+                    Console.WriteLine("Введите количество вертикальных квадратов")
+                    vcubes = Console.ReadLine
+                    Console.WriteLine("Введите желаемый символ")
+                    sym = Console.ReadLine
+                    x1 = x
+                    For i = 1 To hcubes
+                        Hline(x, y, length, sym)
+                        Vline(x, y, length, sym)
+                        Hline(x, y + length - 1, length, sym)
+                        Vline(x + (length * 2 - 2), y, length, sym)
+                        x += length * 2 - 2
+                    Next
+                    For j = 2 To vcubes
+                        x = x1
+                        y += length - 1
+                        For k = 1 To hcubes
+                            Hline(x, y, length, sym)
+                            Vline(x, y, length, sym)
+                            Hline(x, y + length - 1, length, sym)
+                            Vline(x + (length * 2 - 2), y, length, sym)
+                            x += length * 2 - 2
+                        Next
+                    Next
+                    Console.ReadKey()
+                Case 2
+                    Console.Clear()
+                    Console.WriteLine("Введите координату х")
+                    x = Console.ReadLine
+                    Console.WriteLine("Введите координату у")
+                    y = Console.ReadLine
+                    Console.WriteLine("Введите длину линий")
+                    length = Console.ReadLine
+                    Console.WriteLine("Введите желаемый символ")
+                    sym = Console.ReadLine
+                    Hline(x, y, length, sym)
+                    Vline(x, y, length, sym)
+                    Hline(x, y + length - 1, length, sym)
+                    Vline(x + (length * 2 - 2), y, length, sym)
+                    Console.ReadKey()
+                Case 3
+                    Console.Clear()
+                    Console.WriteLine("Введите координату х")
+                    x = Console.ReadLine
+                    Console.WriteLine("Введите координату у")
+                    y = Console.ReadLine
+                    Console.WriteLine("Введите длину линий")
+                    length = Console.ReadLine
+                    Console.WriteLine("Введите желаемый символ")
+                    sym = Console.ReadLine
+                    Console.SetCursorPosition(x, y)
+                    For l = 1 To length
+                        For m = 1 To length
+                            Console.Write(sym & " ")
+                        Next
+                        y += 1
+                        Console.SetCursorPosition(x, y)
+                    Next
+                    Console.ReadKey()
+                Case 4
+                    Console.Clear()
+                    Console.WriteLine("Введите длинну линии")
+                    length = Console.ReadLine
+                    Console.WriteLine("Введите желаемый символ")
+                    sym = Console.ReadLine
+                    For n = 1 To length
+                        Console.Write(sym)
+                    Next
+                    Console.ReadKey()
+                Case 5
+                    Do
+                        Console.Clear()
+                        Console.WriteLine("Изменить цвет фона на красный - 1, изменить цвет фона на синий - 2, изменить цвет фона на зелёный - 3, изменить цвет фона на белый - 4, изменить цвет шрифта на чёрный - 5, изменить цвет шрифта на белый - 6, изменить цвет шрифта на голубой - 7, изменить цвет шрифта на пурпурный - 8, вернуть стандартный цвет фона и шрифта - 9, вернутся в главное меню - 0")
+                        b = Console.ReadLine
+                        Select Case b
+                            Case 1
+                                Console.BackgroundColor = ConsoleColor.Red
+                            Case 2
+                                Console.BackgroundColor = ConsoleColor.Blue
+                            Case 3
+                                Console.BackgroundColor = ConsoleColor.Green
+                            Case 4
+                                Console.BackgroundColor = ConsoleColor.White
+                            Case 5
+                                Console.ForegroundColor = ConsoleColor.Black
+                            Case 6
+                                Console.ForegroundColor = ConsoleColor.White
+                            Case 7
+                                Console.ForegroundColor = ConsoleColor.Cyan
+                            Case 8
+                                Console.ForegroundColor = ConsoleColor.Magenta
+                            Case 9
+                                Console.ResetColor()
+                            Case 0
+                                Exit Do
+                        End Select
+                    Loop
+                Case 6
+                    Exit Do
+            End Select
+        Loop
+    End Sub
+    Sub Hline(x As Integer, y As Integer, length As Integer, sym As String)
+        Console.SetCursorPosition(x, y)
+        For i = 1 To length
+            Console.Write(sym & " ")
+        Next
+    End Sub
+    Sub Vline(x As Integer, y As Integer, length As Integer, sym As String)
+        Console.SetCursorPosition(x, y)
+        For j = 1 To length
+            Console.Write(sym)
+            y += 1
+            Console.SetCursorPosition(x, y)
+        Next
+    End Sub
+End Module
