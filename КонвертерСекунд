@@ -1,0 +1,27 @@
+Module Module1
+
+    Sub Main()
+        Dim h, s, pks, days, nado, nado1, m As Long
+        Console.Clear()
+        Console.WriteLine("Введите любое количество секунд")
+        pks = Console.ReadLine
+        s = pks Mod 60
+        m = pks / 60 - (pks Mod 60) / 100
+        If m >= 60 Then
+            nado = m / 60 - (m Mod 60) / 100          'Если минут больше 60 мы лишние минуты конвертируем в часы 
+            h += nado
+            m = m Mod 60
+        End If
+        If h >= 24 Then
+            nado1 = h / 24 - (h Mod 24) / 100
+            days += nado1
+            h = h Mod 24
+        End If
+        Console.WriteLine("Дни = " & days)
+        Console.WriteLine("Часы = " & h)
+        Console.WriteLine("Минуты = " & m)
+        Console.WriteLine("Секунды = " & s)
+        Console.ReadKey()
+    End Sub
+
+End Module
