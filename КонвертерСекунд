@@ -1,0 +1,36 @@
+Module Module1
+
+    Sub Main()
+        Dim seconds, minutes, hours, days, uservalue As Decimal
+        Console.WriteLine("Введите любое количество секунд")
+        Do
+            uservalue = Console.ReadLine
+            If uservalue >= Int32.MaxValue Then
+                Console.WriteLine("Слишком большое количество секунд, пожалуйста введите число поменьше")
+                Continue Do
+            Else
+                Exit Do
+            End If
+        Loop
+        days = uservalue \ 86400
+        hours = uservalue \ 3600
+        If hours >= 24 Then
+            While hours >= 24
+                hours -= 24
+            End While
+        End If
+        minutes = uservalue \ 60
+        If minutes >= 60 Then
+            While minutes >= 60
+                minutes -= 60
+            End While
+        End If
+        seconds = uservalue Mod 60
+        Console.WriteLine("Дни = " & days)
+        Console.WriteLine("Часы = " & hours)
+        Console.WriteLine("Минуты = " & minutes)
+        Console.WriteLine("Секунды = " & seconds)
+        Console.ReadKey()
+    End Sub
+
+End Module
