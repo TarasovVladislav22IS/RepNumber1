@@ -1,0 +1,53 @@
+Module Module1
+
+    Sub Main()
+        Dim a, b As String
+        Dim volume As Integer
+        Do
+            Randomize()
+            a = Int(1000 + 9999 * Rnd())
+            If a >= 10000 Then
+                Continue Do
+            End If
+            For i = 0 To 3
+                For j = i + 1 To 3
+                    If a.Chars(i) = a.Chars(j) Then
+                        Continue Do
+                    End If
+                Next
+            Next
+            Exit Do
+        Loop
+        Console.WriteLine("Введите любое 4-ёх значное число")
+        Do
+            b = Console.ReadLine
+            If b = "cheats" Then
+                Console.WriteLine(a)
+            End If
+            volume += 1
+            For m = 0 To 3
+                If b.Chars(0) = a.Chars(0) And b.Chars(1) = a.Chars(1) And b.Chars(2) = a.Chars(2) And b.Chars(3) = a.Chars(3) Then
+                    Console.WriteLine("Вы Победили!")
+                    If volume < 4 Then
+                        Console.WriteLine("Вы прошли игру сделав " & volume & " хода!")
+                        Exit Do
+                    Else
+                        Console.WriteLine("Вы прошли игру сделав " & volume & " ходов!")
+                        Exit Do
+                    End If
+
+                    Exit For
+                ElseIf b.Chars(m) = a.Chars(m) Then
+                    Console.WriteLine("Bull")
+                Else
+                    For l = 0 To 3
+                        If b.Chars(m) = a.Chars(l) Then
+                            Console.WriteLine("Cow")
+                        End If
+                    Next
+                End If
+            Next
+        Loop
+        Console.ReadKey()
+    End Sub
+End Module
