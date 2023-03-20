@@ -1,0 +1,23 @@
+Module Module1
+
+    Sub Main()
+        Dim s, d, d1, m, userval As Long
+        Console.WriteLine("Введите любое количество сантиметров")
+        userval = Console.ReadLine
+        m = userval \ 1000
+        d = userval \ 10
+        s = userval Mod 10
+        d1 = userval Mod 1000
+        Console.WriteLine("Сантиметры = " & userval)
+        Console.WriteLine("Дециметры = " & d & " Сантиметры = " & s)
+        If d >= 100 Then
+            d = d1
+            If d >= 100 Then
+                d = d1 Mod 100
+            End If
+        End If
+        Console.WriteLine("Метры = " & m & " Дециметры = " & d & " Сантиметры = " & s)
+        Console.ReadKey()
+    End Sub
+
+End Module
