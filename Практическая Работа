@@ -1,0 +1,23 @@
+Module Module1
+
+    Sub Main()
+        Dim stoim, ves, cena As Integer
+        Dim name As String
+        Do
+            Console.WriteLine("Введите Имя продукта")
+            name = Console.ReadLine
+            If name = "exit" Then
+                Exit Do
+            End If
+            Console.WriteLine("Введите Вес продукта")
+            ves = Console.ReadLine
+            Console.WriteLine("Введите цену продукта за килограмм")
+            cena = Console.ReadLine
+            Console.WriteLine("Наименование - " & name & ", Вес - " & ves & " кг.")
+            stoim = cena * ves
+            Console.WriteLine("Стоимость - " & stoim)
+            Console.ReadKey()
+        Loop
+    End Sub
+
+End Module
