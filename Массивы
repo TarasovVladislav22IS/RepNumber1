@@ -1,0 +1,75 @@
+Module Module1
+
+    Sub Main()
+        Dim a(5) As Integer
+        Dim val, index, b As Integer
+        Console.WriteLine("Введите элементы массива")
+        For i = 0 To 5
+            a(i) = Console.ReadLine
+        Next
+        For j = a.Length - 1 To 0 Step -1
+            Console.WriteLine(a(j))
+        Next
+        Console.WriteLine("Максимальное значение = " & Max(a))
+        Console.WriteLine("Минимальное значение = " & Min(a))
+        Console.WriteLine("Введите число для поиска в массиве")
+        b = Console.ReadLine
+        Console.WriteLine(search(a, b) & " Строка")
+        Console.WriteLine("Укажите строку для добавления")
+        index = Console.ReadLine
+        Console.WriteLine("Введите значение")
+        val = Console.ReadLine
+        Add(a, val, index)
+        Console.WriteLine("Введите строку для удаления")
+        index = Console.ReadLine
+        Delete(a, index)
+        Console.ReadKey()
+    End Sub
+    Function search(a() As Integer, b As Integer)
+        Dim c As String
+        For k = 0 To a.Length - 1
+            If b = a(k) Then c = b Else c = "-"
+        Next
+        Return c
+    End Function
+    Function Max(a() As Integer)
+        Dim b As Integer
+        For l = 0 To a.Length - 1
+            If b < a(l) Then
+                b = a(l)
+            End If
+        Next
+        Return b
+    End Function
+    Function Min(a() As Integer)
+        Dim b As Integer
+        For l = 0 To a.Length - 1
+            b = a(0)
+            If b > a(l) Then
+                b = a(l)
+            End If
+        Next
+        Return b
+    End Function
+    Sub Add(ByRef a() As Integer, value As Integer, index As Integer)
+        If index < 0 Or index > a.Length Then Exit Sub
+        ReDim Preserve a(a.Length)
+        For i = a.Length - 1 To index + 1 Step -1
+            a(i) = a(i - 1)
+        Next
+        a(index) = value
+        For i = 0 To a.Length - 1
+            Console.WriteLine(a(i))
+        Next
+    End Sub
+    Sub Delete(a() As Integer, index As Integer)
+        For i = index To a.Length - 1 Step +1
+            a(i) = a(i + 1)
+            If a(i) = (a.Length - 1) Then Exit For
+        Next
+        ReDim Preserve a(a.Length - 2)
+        For i = 0 To a.Length - 1
+            Console.WriteLine(a(i))
+        Next
+    End Sub
+End Module
