@@ -1,0 +1,69 @@
+Module Module1
+
+    Sub Main()
+        Dim usval As Integer
+        Console.WriteLine("1 - a, 2 - b, 3 - v")
+        usval = Console.ReadLine
+        Select Case usval
+            Case 1
+                A()
+            Case 2
+                B()
+            Case 3
+                V()
+        End Select
+        Console.ReadKey()
+    End Sub
+
+    Sub A()
+        Dim a, b, c, x, y, z As Double
+        a = 1.5
+        b = 7
+        c = 2
+        x = Math.E ^ a - Math.Cos(b) / Math.Sqrt(Math.Abs(a * b * c))
+        y = Math.Log(a) - b * c
+        z = Math.Sin(x * y) + 2
+    End Sub
+    Sub B()
+        Dim x, y, z, z1, p As Double
+        Console.WriteLine("1 - x = 2,2 , 2 - x = -5,3")
+        p = Console.ReadLine
+        Select Case p
+            Case 1
+                x = 2.2
+                If x > 2 Then
+                    y = x * Math.Log(Math.Abs(x))
+                ElseIf x <= 2 Then
+                    y = x ^ 2
+                End If
+                z = 2 * Math.Pow(Math.Cos(y ^ 3), 2) - Math.Log(Math.Abs(y))
+            Case 2
+                x = -5.3
+                If x > 2 Then
+                    y = x * Math.Log(Math.Abs(x))
+                ElseIf x <= 2 Then
+                    y = x ^ 2
+                End If
+                z1 = 2 * Math.Pow(Math.Cos(y ^ 3), 2) - Math.Log(Math.Abs(y))
+        End Select
+    End Sub
+    Sub V()
+        Dim x, z, b, c As Double
+        x = -7
+        b = Math.Pow(Math.E, x + 2) + 0.6
+        c = Math.Pow(x, 2) - 1
+        Do
+            If x > 2 Then
+                Exit Do
+            End If
+            If x < 0 Then
+                z = Math.Pow(Math.Cos(x), 2) + Math.Pow(Math.E, 2 - x)
+            ElseIf x = 0 Then
+                z = (2 - b) * c
+            ElseIf x > 0 Then
+                z = b + Math.Pow((2 - x), 2)
+            End If
+            x = x + 2
+        Loop
+    End Sub
+End Module
