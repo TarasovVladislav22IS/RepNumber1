@@ -1,0 +1,99 @@
+Module Module1
+
+    Sub Main()
+        Dim a(5), index, val As Integer
+        Dim indn As Integer = 0
+        Console.WriteLine("Введите элементы массива")
+        For i = 0 To 5
+            a(i) = Console.ReadLine
+        Next
+        For j = a.Length - 1 To 0 Step -1
+            Console.WriteLine(a(j))
+        Next
+        Console.WriteLine("Максимальное значение = " & Max(a, indn))
+        Console.WriteLine("Минимальное значение = " & Min(a, indn))
+        Console.WriteLine("Введите число для поиска в массиве")
+        indn = Console.ReadLine
+        Console.WriteLine(Search(a, indn) & " Строка")
+        Console.WriteLine("Укажите строку для добавления")
+        index = Console.ReadLine
+        Console.WriteLine("Введите значение")
+        val = Console.ReadLine
+        Add(a, val, index)
+        Console.WriteLine("Введите строку для удаления")
+        index = Console.ReadLine
+        Delete(a, index)
+        SortMax(a)
+        Sortmin(a)
+        Console.ReadKey()
+    End Sub
+    Function Search(a() As Integer, b As Integer)
+        For k = 0 To a.Length - 1
+            If b = a(k) Then Return k
+        Next
+    End Function
+    Function Max(a() As Integer, ind As Integer)
+        Dim b As Integer
+        For l = ind To a.Length - 1
+            If b < a(l) Then
+                b = a(l)
+            End If
+        Next
+        Return b
+    End Function
+    Function Min(a() As Integer, ind As Integer)
+        Dim b As Integer
+        b = a(ind)
+        For l = ind To a.Length - 1
+            If b > a(l) Then
+                b = a(l)
+            End If
+        Next
+        Return b
+    End Function
+    Sub Add(ByRef a() As Integer, value As Integer, index As Integer)
+        If index < 0 Or index > a.Length Then Exit Sub
+        ReDim Preserve a(a.Length)
+        For i = a.Length - 1 To index + 1 Step -1
+            a(i) = a(i - 1)
+        Next
+        a(index) = value
+    End Sub
+    Sub Delete(a() As Integer, index As Integer)
+        If index < 0 Or index > a.Length - 1 Then Exit Sub
+        For i = index To a.Length - 1
+            If i = (a.Length - 1) Then Exit For
+            a(i) = a(i + 1)
+        Next
+        ReDim Preserve a(a.Length - 2)
+    End Sub
+    Sub Sortmin(a() As Integer)
+        Dim buffer As Integer
+        Dim minznach, index As Integer
+        For i = 0 To a.Length - 1
+            minznach = Min(a, i)
+            index = Search(a, minznach)
+            If a(i) > Min(a, i) Then
+                buffer = a(i)
+                a(i) = Min(a, i)
+                a(index) = buffer
+            End If
+        Next
+       
+    End Sub
+    Sub SortMax(a() As Integer)
+        Dim buffer As Integer
+        Dim minznach, index As Integer
+        For i = 0 To a.Length - 1
+            minznach = Max(a, i)
+            index = Search(a, minznach)
+            If a(i) < Max(a, i) Then
+                buffer = a(i)
+                a(i) = Max(a, i)
+                a(index) = buffer
+            End If
+        Next
+        
+    End Sub
+
+End Module
