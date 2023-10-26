@@ -1,0 +1,10 @@
+Chislo = int(input("Vvedite celoe chislo "))
+if Chislo < 0:
+    proverka1 = "Otricatelnoe"
+elif Chislo > 0:
+    proverka1 = "Polojitelnoe"
+if Chislo % 2 > 0:
+    proverka2 = "Nechetnoie"
+elif Chislo % 2 == 0:
+    proverka2 = "Chetnoe"
+print(str(Chislo),"-", proverka1,  proverka2,"Chislo" sep=" ")
