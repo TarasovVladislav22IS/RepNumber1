@@ -1,0 +1,13 @@
+Mike = int(input())
+Ivan = int(input())
+Inves = 100
+if Mike >= Inves and Ivan >= Inves:
+   print("2")
+elif Mike >= Inves and Ivan<= Inves:
+   print("Mike")
+elif Ivan>+Inves and Mike<=Inves:
+   print("Ivan")
+elif Mike + Ivan >= Inves:
+   print("1")
+elif Mike <= Inves and Ivan <= Inves:
+   print("0")
